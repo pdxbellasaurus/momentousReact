@@ -30,10 +30,11 @@ Further, the outbreak of the COVID-19 across the globe affecting more than 3.9 m
 
 ### Data Map
 
-
+![datamap](https://user-images.githubusercontent.com/74746211/122158000-b96aed80-ce20-11eb-9755-7d0d19a57a26.PNG)
 
 ### UI
 
+![momentreact1](https://user-images.githubusercontent.com/74746211/122157985-b112b280-ce20-11eb-8a74-27ccf35f9b56.PNG)
 
 
 ## A breakdown of roles by group member.
