@@ -1,5 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from './pages/Home';
+import About from './pages/About';
+import SingleEvent from './pages/SingleEvent';
+import CreateEvent from './pages/CreateEvent';
+import NoMatch from './pages/NoMatch';
+
 
 function App() {
   return (
@@ -10,7 +16,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/events/:id" component={SingleEvent} />
-          <Route exact path="/new" component={NewEvent} />
+          <Route exact path="/new" component={CreateEvent} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
