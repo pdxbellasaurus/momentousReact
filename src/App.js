@@ -5,6 +5,8 @@ import About from './pages/About';
 import SingleEvent from './pages/SingleEvent';
 import CreateEvent from './pages/CreateEvent';
 import NoMatch from './pages/NoMatch';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 
 function App() {
