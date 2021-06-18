@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Router>
+      <div>
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -22,6 +23,7 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
         <Footer />
+        </div>
     </Router>
   );
 }
