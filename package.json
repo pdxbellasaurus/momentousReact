@@ -1,4 +1,5 @@
 {
+  "main": "server.js",
   "name": "momentous",
   "version": "0.1.0",
   "private": true,
@@ -32,5 +33,4 @@
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
   }
-  
 }
