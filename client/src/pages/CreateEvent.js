@@ -3,9 +3,11 @@ import React from 'react'
 function CreateEvent() {
     return(
         <div>
-            <h1>
-                CreateEvent PAGE HERE
-            </h1>
+            <form>
+                <input type="text" placeholder="event title" />
+                <textarea placeholder="event description" />
+                <button type="submit">submit event</button>
+            </form>
         </div>
     )
 }

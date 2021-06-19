@@ -7,6 +7,8 @@ import CreateEvent from './pages/CreateEvent';
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
+import 'bulma/css/bulma.css'
 
 
 function App() {
@@ -18,8 +20,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/events/1" component={SingleEvent} />
+          <Route exact path="/events/:id" component={SingleEvent} />
           <Route exact path="/new" component={CreateEvent} />
+          <Route exact path="/users/:id" component={Profile} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />

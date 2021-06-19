@@ -4,10 +4,12 @@ import AllEvents from '../components/AllEvents';
 function Home() {
     return(
         <div>
-            <h1>
-                HOME PAGE HERE
-            </h1>
+            <div className="section">
+                Momentous Events is an event planning site.
+            </div>
+            <div className="section">
             <AllEvents />
+            </div>
         </div>
     )
 }

@@ -2,8 +2,37 @@ import React from 'react'
 
 function AllEvents() {
     return(
-    <div>
-        <p>A bunch of cards with events on them go here!</p>
+    <div className="allEvents container columns">
+        <div className="card column">
+            <div className="card-header">
+                <div className="card-header-title">
+                    Fake Event #1
+                </div>
+            </div>
+            <div className="card-content">
+                This is a fake event to test the layout for this page.
+            </div>
+        </div>
+        <div className="card column">
+            <div className="card-header">
+                <div className="card-header-title">
+                    Fake Event #2
+                </div>
+            </div>
+            <div className="card-content">
+                This is a fake event to test the layout for this page.
+            </div>
+        </div>
+        <div className="card column">
+            <div className="card-header">
+                <div className="card-header-title">
+                    Fake Event #3
+                </div>
+            </div>
+            <div className="card-content">
+                This is a fake event to test the layout for this page.
+            </div>
+        </div>
     </div>
     )
 }
