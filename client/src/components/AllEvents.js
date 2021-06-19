@@ -12,6 +12,9 @@ function AllEvents() {
             <div className="card-content">
                 This is a fake event to test the layout for this page.
             </div>
+            <div className="card-footer">
+                <a href="/">RSVP</a>
+            </div>
         </div>
         <div className="card column">
             <div className="card-header">
@@ -22,6 +25,9 @@ function AllEvents() {
             <div className="card-content">
                 This is a fake event to test the layout for this page.
             </div>
+            <div className="card-footer">
+                <a href="/">RSVP</a>
+            </div>
         </div>
         <div className="card column">
             <div className="card-header">
@@ -31,6 +37,9 @@ function AllEvents() {
             </div>
             <div className="card-content">
                 This is a fake event to test the layout for this page.
+            </div>
+            <div className="card-footer">
+                <a href="/">RSVP</a>
             </div>
         </div>
     </div>
