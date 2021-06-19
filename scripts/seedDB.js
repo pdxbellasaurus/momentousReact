@@ -3,12 +3,13 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/momentousv2"
+  "mongodb://localhost/momentousv2",
+  { useNewUrlParser: true }
 );
 
 const eventSeed = [
   {
-    title: "e",
+    title: "",
 
   },
 

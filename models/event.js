@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-    unique_id: {
-        type: String,
-        required: true
-        },
+    // unique_id: {
+    //     type: String,
+    //     required: true
+    //     },
   title: { 
       type: String, 
       required: true 
@@ -23,7 +23,16 @@ const eventSchema = new Schema({
   description:{
       type: String,
       required: true
-    }
+    },
+owner: [
+  {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
+],
+// guests: [
+
+// ]
 });
 
 const Event = mongoose.model("Event", eventSchema);
