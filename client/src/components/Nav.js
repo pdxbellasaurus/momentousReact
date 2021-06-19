@@ -7,6 +7,7 @@ function Nav() {
         <div className="navbar-brand">
         <Link className="navbar-item" to="/">Home</Link>
         <Link className="navbar-item" to="/about">About</Link>
+        <Link className="navbar-item" to="/users/1">Profile</Link>
         <Link className="navbar-item" to="/new">Create Event</Link>
         </div>
     </nav>
