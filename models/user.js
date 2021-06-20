@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
   firstName: {
     type: String,
     trim: true,
@@ -34,7 +34,7 @@ const UserSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
-  
+
   events: [
       {
           type: Schema.Types.ObjectId,
@@ -43,6 +43,6 @@ const UserSchema = new Schema({
   ]
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
