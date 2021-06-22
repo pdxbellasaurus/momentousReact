@@ -1,47 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import API from '../utils/API'
 
 function AllEvents() {
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        loadEvents()
+    }, [])
+
+    function loadEvents() {
+        API.getEvents()
+            .then(res => {
+                setEvents(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     return(
     <div className="allEvents container columns">
-        <div className="card column">
+        {events.length ? (
+            events.map(event => {
+                <div className="card column">
             <div className="card-header">
                 <div className="card-header-title">
-                    Fake Event #1
+                    <a href="/events/1">{event.title}</a>
                 </div>
             </div>
             <div className="card-content">
-                This is a fake event to test the layout for this page.
+                {event.description}
             </div>
             <div className="card-footer">
                 <a href="/">RSVP</a>
             </div>
         </div>
-        <div className="card column">
-            <div className="card-header">
-                <div className="card-header-title">
-                    Fake Event #2
-                </div>
-            </div>
-            <div className="card-content">
-                This is a fake event to test the layout for this page.
-            </div>
-            <div className="card-footer">
-                <a href="/">RSVP</a>
-            </div>
-        </div>
-        <div className="card column">
-            <div className="card-header">
-                <div className="card-header-title">
-                    Fake Event #3
-                </div>
-            </div>
-            <div className="card-content">
-                This is a fake event to test the layout for this page.
-            </div>
-            <div className="card-footer">
-                <a href="/">RSVP</a>
-            </div>
-        </div>
+            })
+        ) : (
+            <h3>No events yet!</h3>
+        )}
     </div>
     )
 }
