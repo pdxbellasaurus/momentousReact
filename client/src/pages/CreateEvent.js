@@ -11,7 +11,7 @@ function CreateEvent() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.title && formObject.author) {
+        if (formObject.title && formObject.description) {
           API.saveEvent({
             title: formObject.title,
             description: formObject.description,
