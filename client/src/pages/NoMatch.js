@@ -4,7 +4,7 @@ function NoMatch() {
     return(
         <div>
             <h1>
-                NoMatch PAGE HERE
+                Sorry, that page was not found!
             </h1>
         </div>
     )
