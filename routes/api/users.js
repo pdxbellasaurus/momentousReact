@@ -6,6 +6,10 @@ router
   .post(usersController.create);
 
 router
+  .route('/')
+  .get(usersController.find)
+
+router
   .route("/login")
   .post(usersController.login);
 

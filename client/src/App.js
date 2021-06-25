@@ -8,6 +8,8 @@ import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import 'bulma/css/bulma.css'
 
 
@@ -23,6 +25,8 @@ function App() {
           <Route exact path="/events/:id" component={SingleEvent} />
           <Route exact path="/new" component={CreateEvent} />
           <Route exact path="/users/:id" component={Profile} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />

@@ -3,13 +3,20 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
   create: function(req, res) {
-    const { firstName, lastName, email } = req.body;
+    const { firstName, lastName, username, email } = req.body;
     const newUser = { firstName, lastName, username, email };
     newUser.password = bcrypt.hashSync(req.body.password, 10);
     db.User.create(newUser)
       .then((user) => res.json({ status: "success" }))
       .catch((err) => res.status(503).json(err));
   },
+
+  find: function (req, res) {
+    db.User.findAll({ username: req.body.username })
+      .then((user) => {
+        return user;
+      })
+    },
 
   login: function (req, res) {
     db.User.findOne({ username: req.body.username })
