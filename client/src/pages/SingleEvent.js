@@ -1,16 +1,28 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import API from '../utils/API'
 
 function SingleEvent() {
+    const [event, setEvent] = useState({})
+
+    let { id } = useParams();
+
+    useEffect(() => {
+        API.getEvent(id)
+          .then(res => setEvent(res.data))
+          .catch(err => console.log(err));
+      })
+
     return(
         <div>
             <div className="card">
             <div className="card-header">
                 <div className="card-header-title">
-                    Fake Event #1
+                    {event.title}
                 </div>
             </div>
             <div className="card-content">
-                This is a fake event to test the layout for this page.
+                {event.description}
             </div>
         </div>
         </div>

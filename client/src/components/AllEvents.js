@@ -25,7 +25,7 @@ function AllEvents() {
                return( <div className="card column">
             <div className="card-header">
                 <div className="card-header-title">
-                    <a href="/events/1">{event.title}</a>
+                    <a href={"/events/" + event._id}>{event.title}</a>
                 </div>
             </div>
             <div className="card-content">
