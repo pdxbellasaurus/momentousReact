@@ -13,7 +13,6 @@ router
   router.post("/users/login", usersController.authenticate,
    usersController.redirectView);
 
-
   router
   .route("/logout")
   .post(usersController.logout); 
