@@ -21,6 +21,7 @@ module.exports = {
   login: function (req, res) {
     db.User.findOne({ username: req.body.username })
       .then((user) => {
+        console.log(user)
         const hashed = user.password;
         bcrypt.compare(req.body.password, hashed, function (err, match) {
           if (err) {
@@ -28,18 +29,18 @@ module.exports = {
             res.status(503).send("Server error occurred");
           }
           if (match) {
-            // req.session.save({
-            //   req.session.userId = user.id;
-            //   req.session.username = user.username;
-            //   req.session.loggedIn = true;
-            // })
-
+            req.session.save (() => {
+            req.session.loggedIn = true;
             res.json({
               status: "success",
               name: `${user.firstName} ${user.lastName}`,
               username: user.username,
-              email: user.email
+              email: user.email,
+              id: user._id,
+              loggedIn: req.session.loggedIn
             });
+            })
+         
           } else if (!match) {
            res.send(console.log('user not found'))
          } else {

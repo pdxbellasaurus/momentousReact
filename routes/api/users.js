@@ -9,9 +9,9 @@ router
   .route("/login")
   .post(usersController.login);
 
-  router.get("/users/login", usersController.login);
-  router.post("/users/login", usersController.authenticate,
-   usersController.redirectView);
+  // router.get("/users/login", usersController.login);
+  // // router.post("/users/login", usersController.authenticate,
+  //  usersController.redirectView);
 
   router
   .route("/logout")

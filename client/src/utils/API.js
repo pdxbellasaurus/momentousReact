@@ -23,6 +23,7 @@ export default {
  },
  //log in
  loginUser: function(userData) {
+   console.log(userData);
   return axios.post("/api/users/login", userData);
  }
 };

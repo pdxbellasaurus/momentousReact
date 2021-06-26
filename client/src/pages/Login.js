@@ -15,6 +15,12 @@ function Login() {
             username: formObject.username,
             password: formObject.password
         })
+        .then(res => {
+            if (res.data.loggedIn ){
+                window.location.replace(`http://localhost3000/users/${res.data.id}`)
+            }
+
+        }) 
     };
 
     return(
