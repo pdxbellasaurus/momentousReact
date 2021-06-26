@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  // unique_id: {
-  //     type: String,
-  //     required: true
-  //     },
   
   title: {
     type: String,
@@ -36,7 +32,21 @@ const eventSchema = new Schema({
       ref: 'User',
     },
   ],
-  // guests: [ { guests: [ username || / && email ] } ] or { type: [ guestSchema ], default: undefined }
+  guests: [ 
+    { 
+      guest: {
+        guestFirst: { type: String },
+        guestLast: { type: String },
+        email: {
+          type: String,
+        required: true},
+        comment: { 
+          type: String,
+          maxLength: 128
+         }
+     }
+    }
+  ] 
 });
 
 const Event = mongoose.model('Event', eventSchema);

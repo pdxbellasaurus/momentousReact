@@ -6,11 +6,16 @@ router
   .post(usersController.create);
 
 router
-  .route('/')
-  .get(usersController.find)
-
-router
   .route("/login")
   .post(usersController.login);
+
+  router.get("/users/login", usersController.login);
+  router.post("/users/login", usersController.authenticate,
+   usersController.redirectView);
+
+
+  router
+  .route("/logout")
+  .post(usersController.logout); 
 
 module.exports = router;
