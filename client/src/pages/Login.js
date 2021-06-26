@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import API from '../utils/API';
 
-function Login() {
+function Login({ handleLogin }) {
     const [formObject, setFormObject] = useState({})
 
     function handleInputChange(event) {
@@ -17,6 +17,7 @@ function Login() {
         })
         .then(res => {
             if (res.data.loggedIn ){
+                handleLogin(res.data)
                 window.location.replace(`http://localhost3000/users/${res.data.id}`)
             }
 
