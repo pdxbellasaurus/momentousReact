@@ -19,15 +19,19 @@ function App() {
   const [state, setState] = useState({
     loggedIn: false,
     username: "",
-    id: ""
+    id: "",
+    onUpdate: (userData) => {
+
+      setState({ ...state, ...userData });
+    }
   })
 
-  function handleLogin(userData) {
-    setState({
-      username: userData.username,
-      id: userData._id
-    })
-  }
+  // function handleLogin(userData) {
+  //   setState({
+  //     username: userData.username,
+  //     id: userData._id
+  //   })
+  // }
 
   return (
     <GlobalContext.Provider value={state}>
@@ -41,7 +45,7 @@ function App() {
           <Route exact path="/events/:id" component={SingleEvent} />
           <Route exact path="/new" component={CreateEvent} />
           <Route exact path="/users/:id" component={Profile} />
-          <Route exact path="/login" component={<Login handleLogin={handleLogin}/>} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route component={NoMatch} />
         </Switch>

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
 import API from '../utils/API';
+import GlobalContext from '../utils/GlobalState';
 
-function Login({ handleLogin }) {
+function Login() {
     const [formObject, setFormObject] = useState({})
-
+const userData = useContext(GlobalContext)
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -17,10 +18,10 @@ function Login({ handleLogin }) {
         })
         .then(res => {
             if (res.data.loggedIn ){
-                handleLogin(res.data)
-                window.location.replace(`http://localhost3000/users/${res.data.id}`)
+                //can use context now
+                userData.onUpdate(res.data)
+                // window.location.replace(`http://localhost3000/users/${res.data.id}`)
             }
-
         }) 
     };
 
