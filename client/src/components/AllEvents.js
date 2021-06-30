@@ -22,7 +22,7 @@ function AllEvents() {
     <div className="allEvents container columns">
         {events.length ? (
             events.map(event => {
-               return( <div className="card column">
+               return( <div className="card column" key={event._id}>
             <div className="card-header">
                 <div className="card-header-title">
                     <a href={"/events/" + event._id}>{event.title}</a>
