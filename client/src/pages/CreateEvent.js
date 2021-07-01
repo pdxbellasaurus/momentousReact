@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import API from '../utils/API';
+import GlobalContext from '../utils/GlobalState';
 
 function CreateEvent() {
     const [formObject, setFormObject] = useState({})
+    const { id } = useContext(GlobalContext);
+    console.log(id)
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -15,7 +18,8 @@ function CreateEvent() {
           API.saveEvent({
             title: formObject.title,
             description: formObject.description,
-            start_date: formObject.start_date
+            start_date: formObject.start_date,
+            owner: id
           })
             .catch(err => console.log(err));
         }

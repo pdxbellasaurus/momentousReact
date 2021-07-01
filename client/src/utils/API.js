@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default {
+const API =  {
   // Gets all events
   getEvents: function() {
     return axios.get("/api/events");
@@ -25,5 +25,11 @@ export default {
  loginUser: function(userData) {
    console.log(userData);
   return axios.post("/api/users/login", userData);
+ },
+ //log out
+ logoutUser: function() {
+   return axios.post("/api/users/logout");
  }
 };
+
+export default API

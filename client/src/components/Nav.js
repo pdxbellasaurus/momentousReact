@@ -1,9 +1,22 @@
 import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import GlobalContext from '../utils/GlobalState';
+import API from '../utils/API';
 
 function Nav() {
-    const {username, id} = useContext(GlobalContext)
+    const userData = useContext(GlobalContext)
+
+    function handleLogout() {
+        API.logoutUser()
+        .then(res => {
+            if (!res.data.loggedIn ){
+                //can use context now
+                userData.onUpdate(res.data)
+                window.location.replace(`http://localhost:3000/login`)
+            }
+        }) 
+    }
+
     return (
     <nav className="navbar">
         <div className="navbar-brand">
@@ -13,7 +26,8 @@ function Nav() {
         <Link className="navbar-item" to="/new">Create Event</Link>
         <Link className="navbar-item" to="/login">Login</Link>
         <Link className="navbar-item" to="/signup">Signup</Link>
-        <p className="navbar-item">Logged in as: {username} </p>
+        <button className="navbar-item" onClick={handleLogout}>Logout</button>
+        <p className="navbar-item">Logged in as: {userData.username} </p>
         </div>
     </nav>
     )
