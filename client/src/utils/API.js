@@ -9,6 +9,10 @@ const API =  {
   getEvent: function(id) {
     return axios.get("/api/events/" + id);
   },
+  //Update event with a given id
+  updateEvent: function(id, eventData) {
+    return axios.put("/api/events/" + id, eventData)
+  },
   // Deletes the event with the given id
   deleteEvent: function(id) {
     return axios.delete("/api/events/" + id);

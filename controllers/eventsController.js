@@ -10,6 +10,7 @@ module.exports = {
   findById: function(req, res) {
     db.Event.findById(req.params.id)
       .populate('owner')
+      .populate('guests.user')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

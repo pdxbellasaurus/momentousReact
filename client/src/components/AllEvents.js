@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import API from '../utils/API'
+import { Link } from 'react-router-dom'
 
 function AllEvents() {
     const [events, setEvents] = useState([])
@@ -25,7 +26,7 @@ function AllEvents() {
                return( <div className="card column" key={event._id}>
             <div className="card-header">
                 <div className="card-header-title">
-                    <a href={"/events/" + event._id}>{event.title}</a>
+                    <Link to={"/events/" + event._id}>{event.title}</Link>
                 </div>
             </div>
             <div className="card-content">

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import GlobalContext from '../utils/GlobalState';
 
 function Profile() {
-    const [username] = useContext(GlobalContext)
+    const {username} = useContext(GlobalContext)
     return(
         <div>
             <div className="card column">
