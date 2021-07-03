@@ -30,7 +30,7 @@ function CreateEvent() {
             <form>
                 <input onChange={handleInputChange} type="text" placeholder="event title" name="title" />
                 <textarea onChange={handleInputChange} placeholder="event description" name="description" />
-                <input label="start date" type="date" name="start_date" onChange={handleInputChange} />
+                <input label="start date" type="datetime-local" name="start_date" onChange={handleInputChange} />
                 <button type="submit" onClick={handleFormSubmit}>submit event</button>
             </form>
         </div>

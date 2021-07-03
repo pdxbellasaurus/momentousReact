@@ -34,18 +34,15 @@ const eventSchema = new Schema({
   ],
   guests: [ 
     { 
-      guest: {
-        guestFirst: { type: String },
-        guestLast: { type: String },
-        email: {
-          type: String,
-        required: true},
-        comment: { 
-          type: String,
-          maxLength: 128
+          user: {type: Schema.Types.ObjectId,
+                ref: 'User'
+              },
+          comment: { 
+            type: String,
+            maxLength: 128
          }
      }
-    }
+      
   ] 
 });
 
