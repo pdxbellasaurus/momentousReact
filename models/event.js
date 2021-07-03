@@ -11,17 +11,9 @@ const eventSchema = new Schema({
   start_date: { type: Date },
   end_date: { type: Date },
 
-  venue: [
-    {
-      name: { type: String },
-      address: {
-        street: { type: String },
-        city: { type: String },
-        state: { type: String },
-        zip: { type: Number },
-      },
-    },
-  ],
+  venue: {
+    type: String
+  },
   description: {
     type: String,
     required: true,

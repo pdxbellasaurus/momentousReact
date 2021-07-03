@@ -45,7 +45,7 @@ function SingleEvent() {
       }
     let newStartDate = new Date(event.start_date).toLocaleString()
     let newEndDate = new Date(event.end_date).toLocaleString()
-
+      console.log(event.venue)
     return(
         <div>
             <div className="card">
@@ -53,6 +53,7 @@ function SingleEvent() {
                 <div className="card-header-title">
                   {event.title} by {owner.firstName} {owner.lastName}
                   <p>from {newStartDate} to {newEndDate}</p>
+                  <p>at {event.venue}</p>
                 </div>
             </div>
             <div className="card-content">
