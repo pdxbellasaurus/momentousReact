@@ -25,6 +25,14 @@ const API =  {
  saveUser: function(userData) {
   return axios.post("/api/users", userData);
  },
+ // find one user with given id
+ getUser: function(id) {
+   return axios.get("/api/users/" + id)
+ },
+//  //update user
+//  updateUser: function(userData) {
+//    return axios.put("/api/users/" + userData.id, userData)
+//  },
  //log in
  loginUser: function(userData) {
    console.log(userData);
