@@ -33,14 +33,14 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-  },
+  }
 
-  events: [
-      {
-          type: Schema.Types.ObjectId,
-          ref: "Event"
-      }
-  ]
+  // events: [
+  //     {
+  //         type: Schema.Types.ObjectId,
+  //         ref: "Event"
+  //     }
+  // ]
 });
 
 const User = mongoose.model("User", userSchema);
