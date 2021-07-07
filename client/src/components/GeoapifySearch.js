@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete'
 import '@geoapify/geocoder-autocomplete/styles/minimal.css'
 
@@ -7,11 +7,11 @@ function GeoapifySearch(props) {
   
 
     function onPlaceSelect(value) {
-        console.log(value);
+
         props.handleAddressChange(value)
       }
     
-      function onSuggectionChange(value) {
+      function onSuggestionChange(value) {
         console.log(value);
       }
     
@@ -38,11 +38,11 @@ function GeoapifySearch(props) {
         return filtered;
       }
     
-      return <GeoapifyContext apiKey="8220c7bc37d549848ae86fd9d8324474">
+      return <GeoapifyContext apiKey={process.env.GEO_API_KEY}>
     
           <GeoapifyGeocoderAutocomplete
             placeSelect={onPlaceSelect}
-            suggestionsChange={onSuggectionChange}
+            suggestionsChange={onSuggestionChange}
           />
         </GeoapifyContext>
     }

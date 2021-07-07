@@ -11,8 +11,7 @@ function Profile() {
         API.getEvents()
         .then(res => {
             const filteredEvents = res.data.filter(event => event.owner[0]._id === id);
-            console.log(id)
-            console.log(filteredEvents)
+
             setEvents(filteredEvents);
         })
         .catch(err => {

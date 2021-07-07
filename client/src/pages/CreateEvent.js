@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext } from 'react'
 import API from '../utils/API';
 import GlobalContext from '../utils/GlobalState';
 import DateTimePicker from 'react-datetime-picker'
@@ -10,8 +10,7 @@ function CreateEvent() {
     const [endDate, setEndDate] = useState(new Date())
     const [venue, setVenue] = useState("")
     const { id } = useContext(GlobalContext);
-    console.log(id)
-
+ 
 
     function handleAddressChange(value) {
       setVenue(value)
@@ -25,7 +24,7 @@ function CreateEvent() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.title && formObject.description) {
-          console.log(venue)
+ 
           API.saveEvent({
             title: formObject.title,
             description: formObject.description,

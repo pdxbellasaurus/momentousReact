@@ -22,7 +22,7 @@ function App() {
     username: "",
     id: "",
     onUpdate: (userData) => {
-      console.log(userData)
+   
       setState({ ...state, ...userData });
     }
   })

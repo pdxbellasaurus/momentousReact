@@ -14,17 +14,21 @@ app.use(express.json());
 // Setup store and Connect to the Mongo DB
 const mongoDBstore = new MongoDBStore(
   mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/momentousv2",
-  { useNewUrlParser: true , useUnifiedTopology: true}));
+  { useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+  ));
   
-
-//express session
+//express mongodbstore session
 app.use(session({
     secret: 'This is a secret', //SESS_SECRET
     resave: true,
     saveUninitialized: true, //false
     store: mongoDBstore,
     cookie: {
-      // maxAge: MAX_AGE,
+      maxAge: 300000,
       // sameSite: false,
       // secure: IS_PROD
     }
@@ -38,8 +42,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 app.use(routes);
-
-
 
 // Start the API server
 app.listen(PORT, function() {

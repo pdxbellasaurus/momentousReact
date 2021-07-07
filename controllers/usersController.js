@@ -33,7 +33,7 @@ module.exports = {
   login: function (req, res) {
     db.User.findOne({ username: req.body.username })
       .then((user) => {
-        console.log(user)
+       
         const hashed = user.password;
         bcrypt.compare(req.body.password, hashed, function (err, match) {
           if (err) {

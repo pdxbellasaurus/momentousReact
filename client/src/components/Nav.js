@@ -5,7 +5,6 @@ import API from '../utils/API';
 
 function Nav() {
     const userData = useContext(GlobalContext)
-    console.log(userData)
 
     function handleLogout() {
         API.logoutUser()

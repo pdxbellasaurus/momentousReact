@@ -37,11 +37,11 @@ Further, the outbreak of the COVID-19 across the globe affecting more than 3.9 m
 
 ## A breakdown of roles by group member.
 
-Brigid: Back End (Server, Components/Views)
+Brigid: Front End (Components/Views)
 
-Carrie: Back End (Model, Routes)
+Carrie: Back End (Server, Model, Routes)
 
-Carson: Front End (App)
+Carson: Front End (App, CSS)
 
 ## A schedule for completion of various tasks. 
 

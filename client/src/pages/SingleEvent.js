@@ -6,9 +6,9 @@ import GlobalContext from '../utils/GlobalState'
 function SingleEvent() {
     const [event, setEvent] = useState({});
     let { id } = useParams();
-    console.log(id);
+  
     const userData = useContext(GlobalContext);
-    console.log(userData.id);
+  
     const [owner, setOwner] = useState("");
     const [formObject, setFormObject] = useState({});
     const [guests, setGuests] = useState([]);
@@ -31,7 +31,7 @@ function SingleEvent() {
         API.getEvent(id)
           .then(res => {
             setGuests(res.data.guests);
-            console.log(guests);
+         
             API.updateEvent(id, {
                guests: [
                   ...guests,
@@ -45,7 +45,7 @@ function SingleEvent() {
       }
     let newStartDate = new Date(event.start_date).toLocaleString()
     let newEndDate = new Date(event.end_date).toLocaleString()
-      console.log(event.venue)
+    
     return(
         <div>
             <div className="card">
