@@ -9,7 +9,7 @@ module.exports = {
     db.User.create(newUser)
       .then((user) => {
         req.session.save (() => {
-        req.session.loggedIn = true})
+        req.session.loggedIn = true
         res.json({
           status: "success",
           name: `${user.firstName} ${user.lastName}`,
@@ -18,6 +18,8 @@ module.exports = {
           id: user._id,
           loggedIn: req.session.loggedIn
         });})
+        console.log(req.session.loggedIn)
+        })
       .catch((err) => res.status(503).json(err));
   },
 
