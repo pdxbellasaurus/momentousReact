@@ -22,7 +22,7 @@ function App() {
     username: "",
     id: "",
     onUpdate: (userData) => {
-
+      console.log(userData)
       setState({ ...state, ...userData });
     }
   })
@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/events/:id" component={SingleEvent} />
           <ProtectedRoute exact path="/new" component={CreateEvent} />
-          <ProtectedRoute exact path="/users/:id" component={Profile} />
+          <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route component={NoMatch} />

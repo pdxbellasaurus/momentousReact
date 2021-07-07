@@ -4,7 +4,7 @@ import GlobalContext from '../utils/GlobalState';
 
 function Login() {
     const [formObject, setFormObject] = useState({})
-const userData = useContext(GlobalContext)
+    const userData = useContext(GlobalContext)
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})

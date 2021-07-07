@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import API from '../utils/API';
+import GlobalContext from '../utils/GlobalState';
 
 function SignUp() {
     const [formObject, setFormObject] = useState({})
+    const userData = useContext(GlobalContext)
+    let history = useHistory()
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -17,6 +21,16 @@ function SignUp() {
             lastName: formObject.lastName,
             password: formObject.password,
             email: formObject.email
+        })
+        .then(res => {
+            if (res.data.loggedIn) {
+            userData.onUpdate(res.data)
+            console.log("saving the user")
+            history.push("/profile")
+            }
+        })
+        .catch(err => {
+            console.log(err)
         })
     };
 

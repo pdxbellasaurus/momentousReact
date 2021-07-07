@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import API from '../utils/API';
 import GlobalContext from '../utils/GlobalState';
 import DateTimePicker from 'react-datetime-picker'
@@ -8,11 +8,14 @@ function CreateEvent() {
     const [formObject, setFormObject] = useState({})
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
-    const [venue, setVenue] = useState({})
+    const [venue, setVenue] = useState("")
     const { id } = useContext(GlobalContext);
     console.log(id)
 
-    
+
+    function handleAddressChange(value) {
+      setVenue(value)
+    }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -29,7 +32,7 @@ function CreateEvent() {
             start_date: startDate.toLocaleDateString(),
             end_date: endDate.toLocaleDateString(),
             owner: id,
-            venue: venue
+            venue: venue.properties.formatted
           })
             .catch(err => console.log(err));
         }
@@ -42,7 +45,7 @@ function CreateEvent() {
                 <textarea onChange={handleInputChange} placeholder="event description" name="description" />
                 <DateTimePicker value={startDate} onChange={setStartDate} name="start_date" />
                 <DateTimePicker value={endDate} onChange={setEndDate} name="end_date" />
-                <GeoapifySearch type="text" onChange={setVenue}/>
+                <GeoapifySearch type="text" handleAddressChange={handleAddressChange} />
                 <button type="submit" onClick={handleFormSubmit}>submit event</button>
             </form>
         </div>

@@ -5,6 +5,7 @@ import API from '../utils/API';
 
 function Nav() {
     const userData = useContext(GlobalContext)
+    console.log(userData)
 
     function handleLogout() {
         API.logoutUser()
@@ -14,7 +15,10 @@ function Nav() {
                 userData.onUpdate(res.data)
                 window.location.replace(`http://localhost:3000/login`)
             }
-        }) 
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
