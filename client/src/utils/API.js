@@ -23,6 +23,7 @@ const API =  {
   },
  //create user
  saveUser: function(userData) {
+   console.log(userData)
   return axios.post("/api/users", userData);
  },
  // find one user with given id

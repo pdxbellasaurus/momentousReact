@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import API from '../utils/API';
 import GlobalContext from '../utils/GlobalState';
 
 function Login() {
     const [formObject, setFormObject] = useState({})
-const userData = useContext(GlobalContext)
+    const userData = useContext(GlobalContext)
+    const history = useHistory()
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -20,7 +22,7 @@ const userData = useContext(GlobalContext)
             if (res.data.loggedIn ){
                 //can use context now
                 userData.onUpdate(res.data)
-                // window.location.replace(`http://localhost3000/users/${res.data.id}`)
+                history.push("/profile")
             }
         }) 
     };

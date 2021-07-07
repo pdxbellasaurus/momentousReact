@@ -5,6 +5,7 @@ import API from '../utils/API';
 
 function Nav() {
     const userData = useContext(GlobalContext)
+    console.log(userData)
 
     function handleLogout() {
         API.logoutUser()
@@ -14,7 +15,10 @@ function Nav() {
                 userData.onUpdate(res.data)
                 window.location.replace(`http://localhost:3000/login`)
             }
-        }) 
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
@@ -22,7 +26,7 @@ function Nav() {
         <div className="navbar-brand">
         <Link className="navbar-item" to="/">Home</Link>
         <Link className="navbar-item" to="/about">About</Link>
-        <Link className="navbar-item" to="/users/:id">Profile</Link>
+        <Link className="navbar-item" to="/profile">Profile</Link>
         <Link className="navbar-item" to="/new">Create Event</Link>
         <Link className="navbar-item" to="/login">Login</Link>
         <Link className="navbar-item" to="/signup">Signup</Link>

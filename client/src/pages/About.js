@@ -4,8 +4,11 @@ function About() {
     return(
         <div>
             <div className="section">
-                <h2>About Us? About the site?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed ullamcorper ex. Phasellus aliquam nulla a tempor euismod. Quisque libero quam, ullamcorper sit amet suscipit ut, lobortis nec est. Vivamus tempus, eros a rutrum dignissim, diam ipsum commodo tortor, a facilisis arcu lacus blandit ex. Praesent tincidunt tempus dolor, eget venenatis mauris placerat ut. Maecenas interdum eleifend velit in facilisis. Curabitur sed ex porta, pulvinar arcu eu, dapibus nunc. Aliquam eleifend tellus id eros hendrerit, at vulputate sapien hendrerit. Aliquam in aliquam tortor. Aliquam erat volutpat. Cras a felis tristique, tincidunt diam dignissim, auctor turpis. Vivamus at nulla mollis, iaculis odio a, malesuada magna. </p>
+                <h2>About Us</h2>
+                <p>Momentous is an online event forum where users are able to host and RSVP to events. </p>
+<p>The application aims to make it easier for people to plan in-person social activities and reconnect you with your loved ones in a post-pandemic world.</p>
+<p> Events hosted on Momentous are ‘community-driven’, meaning that it is a “no-pressure/no-cost” environment for users to interact in-person in a post-pandemic world. 
+</p>
             </div>
         </div>
     )

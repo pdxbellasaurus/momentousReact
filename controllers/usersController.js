@@ -7,7 +7,19 @@ module.exports = {
     const newUser = { firstName, lastName, username, email };
     newUser.password = bcrypt.hashSync(req.body.password, 10);
     db.User.create(newUser)
-      .then((user) => res.json({ status: "success" }))
+      .then((user) => {
+        req.session.save (() => {
+        req.session.loggedIn = true
+        res.json({
+          status: "success",
+          name: `${user.firstName} ${user.lastName}`,
+          username: user.username,
+          email: user.email,
+          id: user._id,
+          loggedIn: req.session.loggedIn
+        });})
+        console.log(req.session.loggedIn)
+        })
       .catch((err) => res.status(503).json(err));
   },
 
@@ -58,7 +70,7 @@ module.exports = {
         res.status(204).end();
       });
     } else {
-      res.status(404).end();
+      res.status(400).end();
     }
   }
 };
