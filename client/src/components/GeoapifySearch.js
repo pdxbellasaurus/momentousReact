@@ -1,4 +1,5 @@
 import React from 'react'
+import env from "react-dotenv";
 import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete'
 import '@geoapify/geocoder-autocomplete/styles/minimal.css'
 
@@ -38,7 +39,7 @@ function GeoapifySearch(props) {
         return filtered;
       }
     
-      return <GeoapifyContext apiKey={process.env.GEO_API_KEY}>
+      return <GeoapifyContext apiKey={env.GEO_API_KEY}>
     
           <GeoapifyGeocoderAutocomplete
             placeSelect={onPlaceSelect}
