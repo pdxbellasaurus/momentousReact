@@ -17,13 +17,15 @@ const mongoDBstore = new MongoDBStore(
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    }
+    
+  }
   ));
   
 //express mongodbstore session
 app.use(session({
+  url: process.env.MONGOLAB_URI,
     secret: 'This is a secret', //SESS_SECRET
-    resave: false,
+    resave: true,
     saveUninitialized: true, //false
     store: mongoDBstore,
     cookie: {
