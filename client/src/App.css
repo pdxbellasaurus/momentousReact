@@ -5,3 +5,11 @@
 .card {
   width: 20%;
 }
+
+.title-class{
+  color:white;
+  font-size: large;
+  font-weight: bold;
+  padding: 1px;
+  
+}
