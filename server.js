@@ -28,7 +28,7 @@ app.use(session({
     saveUninitialized: true, //false
     store: mongoDBstore,
     cookie: {
-      maxAge: 300000,
+      // maxAge: 300000,
       // sameSite: false,
       // secure: IS_PROD
     }
