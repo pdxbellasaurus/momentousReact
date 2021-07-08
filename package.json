@@ -1,26 +1,19 @@
 {
- 
   "name": "momentous",
   "version": "0.1.0",
   "description": "social event app",
   "main": "server.js",
-
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
+    "start": "node server.js",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pdxbellasaurus/momentousReact.git"
   },
-
   "author": "Brigid, Carson and Carrie",
   "homepage": "https://github.com/pdxbellasaurus/momentousReact#readme",
   "license": "MIT",
@@ -28,14 +21,14 @@
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
   },
-
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "connect-mongodb-session": "^2.4.1",
+    "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16"
   }
- }
+}

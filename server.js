@@ -12,30 +12,20 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
 // Setup store and Connect to the Mongo DB
-const mongoDBstore = new MongoDBStore(
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/momentousv2",
-  { useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-      }
-  ));
+const mongoDBstore = new MongoDBStore({
+  uri: process.env.MONGODB_URI || "mongodb://localhost/momentousv2", 
+  collection: "sessions"
+})
   
 //express mongodbstore session
 app.use(session({
-  url: process.env.MONGOLAB_URI,
     secret: 'This is a secret', //SESS_SECRET
     resave: true,
     saveUninitialized: true, //false
     store: mongoDBstore,
     cookie: {
-      // maxAge: 300000,
-      // sameSite: false,
-      // secure: IS_PROD
+      maxAge: 1000 * 60 * 60 * 24
     }
   })
 );
@@ -43,9 +33,22 @@ app.use(session({
 // Add routes, both API and view
 app.use(routes);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/momentousv2",
+  { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+      }
+  );
 
 // Start the API server
 app.listen(PORT, function() {
