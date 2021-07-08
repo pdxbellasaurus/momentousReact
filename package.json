@@ -2,7 +2,10 @@
   "main": "server.js",
   "name": "momentous",
   "version": "0.1.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdxbellasaurus/momentousReact.git"
+  },
   "dependencies": {
     "@geoapify/geocoder-autocomplete": "^1.3.2",
     "@geoapify/react-geocoder-autocomplete": "^1.3.1",
@@ -30,6 +33,7 @@
     "heroku-postbuild": "npm run build"
   },
   "author": "",
+  "homepage": "https://github.com/pdxbellasaurus/momentousReact#readme",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
