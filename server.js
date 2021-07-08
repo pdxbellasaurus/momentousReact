@@ -12,14 +12,17 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Setup store and Connect to the Mongo DB
 const mongoDBstore = new MongoDBStore(
   mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/momentousv2",
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    
-  }
+      }
   ));
   
 //express mongodbstore session
@@ -40,22 +43,9 @@ app.use(session({
 // Add routes, both API and view
 app.use(routes);
 
-// // Serve up static assets 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-
-
-if(process.env.NODE_ENV === 'production'){
-  // set static folder:
-  app.use(express.static(path.join(__dirname, "client/build")))
-  app.get("*", (req,res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
-}
-
-
-
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Start the API server
 app.listen(PORT, function() {
