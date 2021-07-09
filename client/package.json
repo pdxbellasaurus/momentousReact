@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage":"https://momentous-v2.herokuapp.com/",
   "dependencies": {
     "@geoapify/geocoder-autocomplete": "^1.3.2",
     "@geoapify/react-geocoder-autocomplete": "^1.3.1",

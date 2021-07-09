@@ -21,10 +21,8 @@
   "homepage": "https://github.com/pdxbellasaurus/momentousReact#readme",
   "license": "MIT",
   "devDependencies": {
-
     "babel-plugin-react-html-attrs": "^3.0.5",
     "concurrently": "^4.1.2",
-
     "nodemon": "^1.18.7"
   },
   "dependencies": {
