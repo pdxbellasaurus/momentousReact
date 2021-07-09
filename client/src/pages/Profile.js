@@ -24,7 +24,8 @@ function Profile() {
     }, [])
 
     return(
-        <div>
+        <div className="container is-fluid">
+            <div class="section">
             <div className="card column">
             <div className="card-header">
                 <div className="card-header-title">
@@ -33,6 +34,7 @@ function Profile() {
             </div>
             <div className="card-content">
                 This is a fake user card to test the layout for this page.
+            </div>
             </div>
         </div>
         {events.length ? events.map(event => {

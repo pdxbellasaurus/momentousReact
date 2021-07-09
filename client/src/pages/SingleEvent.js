@@ -48,7 +48,7 @@ function SingleEvent() {
     
     return(
         <div>
-            <div className="card">
+            <div className="card column is-12-mobile is-8-tablet is-6-desktop is-4-widescreen is-3-fullhd">
             <div className="card-header">
                 <div className="card-header-title">
                   {event.title} by {owner.firstName} {owner.lastName}

@@ -15,24 +15,37 @@ import 'bulma/css/bulma.css';
 import GlobalContext from './utils/GlobalState';
 // import ProtectedRoute from './components/ProtectedRoute';
 
+import HomeStyle from './components/HomeStyle';
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
 
-function App() {
+
+const App = ( (props) => {  
+
   const [state, setState] = useState({
     loggedIn: false,
     username: "",
     id: "",
     onUpdate: (userData) => {
-   
+
       setState({ ...state, ...userData });
     }
   })
 
-
   return (
+
+  
+
+  <ThemeProvider theme={theme}>{
+
+    <HomeStyle color ="gray" bg="blue">
+
+
     <GlobalContext.Provider value={state}>
     <Router>
-      <div>
+
         <Nav />
+        <div className="container is-fluid">
         <Switch>
           <Route exact path="/" component={Home} />
           {/* <Route exact path="/home" component={Home} />
@@ -44,11 +57,16 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route component={NoMatch} /> */}
         </Switch>
+
         {/* <Footer /> */}
+
         </div>
     </Router>
     </GlobalContext.Provider>
-  );
+    </HomeStyle>
+}</ThemeProvider>
+  )
 }
+)
 
 export default App;
