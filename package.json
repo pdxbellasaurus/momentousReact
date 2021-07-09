@@ -21,14 +21,17 @@
   "homepage": "https://github.com/pdxbellasaurus/momentousReact#readme",
   "license": "MIT",
   "devDependencies": {
+
     "babel-plugin-react-html-attrs": "^3.0.5",
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.2",
+
     "nodemon": "^1.18.7"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "connect-mongodb-session": "^2.4.1",
+    "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
